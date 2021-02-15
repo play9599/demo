@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3加载动画</title>
+    <style>
+        #box{position: relative;text-align: center;list-style-type: none;}
+        #box>li{position: absolute;top: 0;width: 5px;height: 40px;background: aqua;border-radius: 6px;}
+        #box>li:nth-child(1){left: 0;animation: loding 1s ease-in-out 0.1s infinite;}
+        #box>li:nth-child(2){left: 10px;animation: loding 1.2s ease-in-out 0.3s infinite;}
+        #box>li:nth-child(3){left: 20px;animation: loding 1.5s ease-in-out 0.5s infinite;}
+        #box>li:nth-child(4){left: 30px;animation: loding 1.8s ease-in-out 0.7s infinite;}
+       @keyframes loding{
+           0%{transform: scale(1);}
+           50%{transform: scale(0.5);}
+           100%{transform: scale(1);}
+       }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </div>
+</body>
+</html>

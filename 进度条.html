@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0}
+        .father{
+            width: 100px;
+            height: 5px;
+            background-color: rgba(179, 97, 97, 0.5);
+            /*border-radius:5px;*/
+            position: relative;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .son{
+            /* width: 8px; */
+            height: 5px;
+            background-color: rgba(46, 42, 42, 0.5);
+            /*border-radius:5px;*/
+        }
+        .rac{
+            height: 10px;
+            width: 10px;
+            border-radius:50%;
+            background-color: rgba(0, 0, 0, 0.97);
+            position:absolute;
+            top:-3px;
+            left:93px;
+        }
+    </style>
+    <script src="js/jquer-1.12.4.js"></script>
+    <script>
+        $(function() {
+            let $width = $('.son').width();
+           var timer = setInterval(function(){
+                $width--;
+               $('.son').css({
+                   width: $width,
+               });
+                console.log($width);
+                if ($width>0) {
+                    $(".rac").css({
+                        left: $width,
+                    })
+                }else{
+                    $(".rac").css({
+                        left: 0,
+
+                    })
+                    clearInterval(timer)
+                }
+
+            },100)
+        })
+    </script>
+    <script>
+        window.onload = function () {
+            let offsetX,offsetY
+            let rac = document.getElementsByClassName('rac')[0];
+            rac.ondragstart = function (e) {
+                offsetX = e.offsetX;
+                offsetY = e.offsetY;
+                console.log(offsetX, offsetY);
+            }
+            rac.ondrag = function (e) {
+                console.log(e.pageY, e.pageX);
+                if (e.pageX==0&&e.pageY==0){
+                    return
+                }else {
+                    rac.style.left = (e.pageX - offsetX)+'px';
+                    rac.style.top = offsetY;
+
+                }
+                if (e.pageX>100){
+                    rac.style.left = "97px";
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+        <div class="rac" draggable="true"></div>
+    </div>
+</body>
+</html>

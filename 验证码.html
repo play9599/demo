@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机验证码练习</title>
+    <style>
+        #box{
+            width: 150px;
+            height: 35px;
+            background-color: aqua;
+            color: red;
+            margin: 350px auto;
+            text-align: center;
+            
+        }
+        p{
+            text-align: center;
+            font-size: 25px;
+        }
+    </style>
+    <script>
+        var number = "1234567890"; //定义一个字符串
+        var  arr = number.split(""); //变成一个数组
+        var result = "" //定义一个空字符 方便等下接收信息
+        //四次循环
+        for(var i=0;i<4;i++){
+            var n = Math.floor(Math.random()*arr.length) //“地板”取小于等于的最近整数
+            result+=arr[n];//根据下标取值
+        }
+        window.onload = function name(params) {
+            var obox = document.getElementById("box");
+            obox.innerHTML = "<p id = otxt>"+result+"</p>";
+        }
+        function good(params) {
+            alert("晚安")
+        }
+    </script>
+</head>
+<body>
+    <div id="box">       
+    </div>
+    <input type="button" value="提示按钮" onclick="good">
+</body>
+</html>

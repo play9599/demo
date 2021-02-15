@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: #fff;}
+        h1{
+            text-align: center;
+            color: #ffffff;
+            font-size: 48px;
+            text-shadow: 1px 1px 1px #ccc,0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #ff00de,0 0 70px #ff00de,0 0 80px #ff00de,0 0 100px #ff00de,0 0 150px #ff00de;
+            transform-style: preserve-3d;
+            animation: run ease-in-out 9s infinite;
+            @keyframes run {
+               0%{transform:rotateX(-5deg) rotateY(0)} 
+               50%{transform:rotateX(0)rotateY(180deg);
+               text-shadow: 1px 1px 1px #ccc,0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #3eff3e,0 0 70px #3effff,0 0 80px #3effff,0 0 100px #3effee,0 0 150px #3effee;
+}
+                100%{transform:rotateX(5deg) rotateY(360deg)}
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>一定要加油</h1>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <script>
+        window.onload = function(){
+            var olist = document.getElementById("list");
+            var otxt = document.getElementById("txt");
+            var obtn = document.getElementById("btn");
+            var btn_clear = document.getElementById("btn_clear");
+            obtn.onclick = function(){
+                var key_string = "";
+                // 四个随机数
+                for(var i=0;i<4;i++){
+                    key_string+=Math.floor(Math.random()*(9+1));
+                }
+                var string_value = otxt.value;
+                localStorage.setItem(key_string,string_value);
+                // 搭建ul元素里的结构
+                var oli = document.createElement("li");
+                var oli_text = document.createTextNode(key_string+":"+string_value);
+                oli.appendChild(oli_text);
+                olist.appendChild(oli);
+            };
+            // 清除时间函数
+            btn_clear.onclick = function(){
+                localStorage.clear();
+                olist.innerHTML = "";
+            };
+            // 页面载入
+            for(var i=0;i<localStorage.length;i++){
+                var str_key = localStorage.key(i);
+                var str_value = localStorage.getItem(str_key);
+                var oLi = document.createElement("li");
+                var oLi_text = document.createTextNode(str_key+":"+str_value);
+                oLi.appendChild(oLi_text);
+                olist.appendChild(oLi);
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="list"></ul>
+    <textarea  id="txt" cols="30" rows="10"></textarea><br/>
+    <input type="button" value="发表" id="btn">
+    <input type="button" value="清除记录" id="btn_clear">
+</body>
+</html>
